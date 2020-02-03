@@ -5,7 +5,7 @@ import { getThemeValue } from '@ui-kitten/components/theme/theme/theme.service';
 import { dark } from '@eva-design/eva';
 import HomeScreen from '../screens/Home.screen';
 import OtherScreen from '../screens/Other.screen';
-import NavDrawer from '../navigation/NavDrawer';
+import NavDrawer from '../components/NavDrawer';
 
 const DrawerNavigator = createDrawerNavigator(
     {
