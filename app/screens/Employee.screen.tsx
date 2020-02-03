@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react';
 import { Layout, Text } from '@ui-kitten/components';
 import { StyleSheet } from 'react-native';
 
-const OtherScreen = (): ReactElement => {
+const EmployeeScreen = (): ReactElement => {
     return (
         <Layout style={styles.layout}>
             <Text category="h1">Other</Text>
@@ -11,7 +11,7 @@ const OtherScreen = (): ReactElement => {
     );
 };
 
-export default OtherScreen;
+export default EmployeeScreen;
 
 const styles = StyleSheet.create({
     layout: {

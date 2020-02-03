@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react';
 import { Layout, Text } from '@ui-kitten/components';
 import { StyleSheet } from 'react-native';
 
-const HomeScreen = (): ReactElement => {
+const ClientScreen = (): ReactElement => {
     return (
         <Layout style={styles.layout}>
             <Text category="h1">Home</Text>
@@ -11,7 +11,7 @@ const HomeScreen = (): ReactElement => {
     );
 };
 
-export default HomeScreen;
+export default ClientScreen;
 
 const styles = StyleSheet.create({
     layout: {

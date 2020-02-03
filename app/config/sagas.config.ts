@@ -1,10 +1,9 @@
 // @format
-import { all, takeLatest } from 'redux-saga/effects';
-import { mock, MockTypes } from '../mock';
+import { all } from 'redux-saga/effects';
 
 export default function* rootSaga() {
     try {
-        yield all([takeLatest(MockTypes.MOCK, mock)]);
+        yield all([]);
     } catch (e) {
         console.log(e);
     }
