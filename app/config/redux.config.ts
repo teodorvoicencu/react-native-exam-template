@@ -1,23 +1,23 @@
 import { combineReducers } from 'redux';
 import { AsyncStorage } from 'react-native';
 import { persistReducer } from 'redux-persist';
-import { mockReducer } from '../mock';
+import { NetworkReducer } from '../network/redux';
 
 const mainReducer = combineReducers({
-    mock: mockReducer
+    network: NetworkReducer
 });
 
-const persistConfig = {
+const rootPersistConfig = {
     // Root
     key: 'root',
     // Storage Method (React Native)
     storage: AsyncStorage,
     // Whitelist (Save Specific Reducers)
-    whitelist: ['mock'],
+    whitelist: [],
     // Blacklist (Don't Save Specific Reducers)
-    blacklist: []
+    blacklist: ['network']
 };
 // Middleware: Redux Persist Persisted Reducer
-const rootReducer = persistReducer(persistConfig, mainReducer);
+const rootReducer = persistReducer(rootPersistConfig, mainReducer);
 
 export default rootReducer;

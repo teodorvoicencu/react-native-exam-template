@@ -12,7 +12,7 @@ const NavDrawer = ({ navigation }: any) => {
     return (
         <SafeAreaView>
             <Drawer
-                data={[{ title: 'Home' }, { title: 'Settings' }]}
+                data={[{ title: 'Client' }, { title: 'Employee' }]}
                 onSelect={onSelect}
             />
         </SafeAreaView>
