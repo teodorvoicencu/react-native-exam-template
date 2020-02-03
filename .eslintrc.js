@@ -9,6 +9,7 @@ module.exports = {
         'plugin:react-redux/recommended',
         'plugin:redux-saga/recommended'
     ],
+    ignorePatterns: ['server/**', 'node_modules/**'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaVersion: 6,
