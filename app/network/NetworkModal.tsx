@@ -3,7 +3,9 @@ import React, { ReactElement, useCallback } from 'react';
 import { StyleSheet } from 'react-native';
 import { Button, Layout, Modal, Text } from '@ui-kitten/components';
 import { useDispatch, useSelector } from 'react-redux';
+import NetInfo from '@react-native-community/netinfo';
 import { NetworkActions } from './redux';
+import { TripActions } from '../trip/redux';
 
 const NetworkModal = (): ReactElement => {
     const visible = useSelector((state: any) => state.network.visible);
@@ -13,11 +15,26 @@ const NetworkModal = (): ReactElement => {
         dispatch
     ]);
 
+    const retryTrips = useCallback(() => {
+        NetInfo.fetch().then(state => {
+            const status = state.isConnected;
+            dispatch(NetworkActions.update(status));
+            if (status) {
+                dispatch(TripActions.fetchAvailable);
+            }
+            hideModal();
+        });
+    }, [dispatch, hideModal]);
+
     const renderModalElement = () => (
         <Layout style={styles.modalContainer}>
             <Text>You are not connected to internet</Text>
             <Layout style={styles.actions}>
-                <Button style={styles.button} status="primary">
+                <Button
+                    style={styles.button}
+                    status="primary"
+                    onPress={retryTrips}
+                >
                     Retry
                 </Button>
                 <Button

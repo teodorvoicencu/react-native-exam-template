@@ -10,19 +10,10 @@ type Props = {
     trips: Trip[];
 };
 
-const ClientScreen = ({ trips }: Props): ReactElement => {
+const ClientTripScreen = ({ trips }: Props): ReactElement => {
     const tripsList =
         trips.length > 0
-            ? trips.map(trip => (
-                  <TripCard
-                      key={trip.id}
-                      id={trip.id}
-                      name={trip.name}
-                      rooms={trip.rooms}
-                      type={trip.type}
-                      status={trip.status}
-                  />
-              ))
+            ? trips.map(trip => <TripCard key={trip.id} trip={trip} />)
             : null;
 
     return (
@@ -32,18 +23,18 @@ const ClientScreen = ({ trips }: Props): ReactElement => {
     );
 };
 
-export default withTrips(ClientScreen);
+export default withTrips(ClientTripScreen);
 
 const styles = StyleSheet.create({
     layout: {
         flex: 1,
         paddingTop: 48,
-        paddingHorizontal: 24,
         justifyContent: 'flex-start',
         alignItems: 'flex-start'
     },
     scroll: {
         flex: 1,
+        paddingHorizontal: 24,
         width: '100%'
     }
 });

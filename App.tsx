@@ -12,7 +12,6 @@ import initAxios from './app/config/axios.config';
 import AppContainer from './app/config/navigation.config';
 import { NetworkActions } from './app/network/redux';
 import NetworkModal from './app/network/NetworkModal';
-import { TripActions } from './app/trip/redux';
 
 const App = (): ReactElement => {
     useEffect(() => {
@@ -22,9 +21,6 @@ const App = (): ReactElement => {
     NetInfo.addEventListener(state => {
         const status = state.isConnected;
         store.dispatch(NetworkActions.update(status) as PersistorAction);
-        if (status) {
-            store.dispatch(TripActions.fetchAvailable());
-        }
     });
 
     return (

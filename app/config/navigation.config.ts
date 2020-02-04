@@ -3,13 +3,13 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 import { getThemeValue } from '@ui-kitten/components/theme/theme/theme.service';
 import { dark } from '@eva-design/eva';
-import ClientScreen from '../screens/Client.screen';
 import EmployeeScreen from '../screens/Employee.screen';
 import NavDrawer from '../components/NavDrawer';
+import ClientNavigator from '../navigation/client.navigation';
 
 const DrawerNavigator = createDrawerNavigator(
     {
-        Client: ClientScreen,
+        Client: ClientNavigator,
         Employee: EmployeeScreen
     },
     {
