@@ -22,6 +22,9 @@ module.exports = {
     rules: {
         'react-redux/connect-prefer-named-arguments': 2,
         '@typescript-eslint/no-use-before-define': 0,
-        'no-console': 0
+        'no-console': 0,
+        'react/jsx-props-no-spreading': 0,
+        'react/prefer-stateless-function': 0,
+        'react-redux/prefer-separate-component-file': 0
     }
 };

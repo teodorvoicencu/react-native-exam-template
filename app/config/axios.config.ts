@@ -2,5 +2,5 @@
 import axios from 'axios';
 
 export default function initAxios(): void {
-    axios.defaults.baseURL = 'http://localhost:8080/';
+    axios.defaults.baseURL = 'http://localhost:3200';
 }

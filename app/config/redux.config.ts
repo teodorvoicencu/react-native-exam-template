@@ -2,9 +2,17 @@ import { combineReducers } from 'redux';
 import { AsyncStorage } from 'react-native';
 import { persistReducer } from 'redux-persist';
 import { NetworkReducer } from '../network/redux';
+import { tripReducer } from '../trip/redux';
+
+const tripPersistConfig = {
+    key: 'trips',
+    storage: AsyncStorage,
+    blacklist: []
+};
 
 const mainReducer = combineReducers({
-    network: NetworkReducer
+    network: NetworkReducer,
+    trips: persistReducer(tripPersistConfig, tripReducer)
 });
 
 const rootPersistConfig = {
