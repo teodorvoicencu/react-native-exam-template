@@ -1,5 +1,5 @@
 // @format
 import { TripActions, TripTypes, tripReducer } from './trip.redux';
-import fetchAvailable from './trip.saga';
+import { fetchAvailable, book } from './trip.saga';
 
-export { tripReducer, TripActions, TripTypes, fetchAvailable };
+export { tripReducer, TripActions, TripTypes, fetchAvailable, book };

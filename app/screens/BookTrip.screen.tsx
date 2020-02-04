@@ -1,13 +1,22 @@
 // @format
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useCallback } from 'react';
 import { Button, Input, Layout, Text } from '@ui-kitten/components';
 import { StyleSheet } from 'react-native';
 import { withNavigation } from 'react-navigation';
+import { useDispatch } from 'react-redux';
+import { TripActions } from '../trip/redux';
 
 const BookTripScreen = ({ navigation }: any): ReactElement => {
     const trip = navigation.getParam('trip');
 
     const [value, setValue] = React.useState('');
+
+    const dispatch = useDispatch();
+
+    const bookTrip = useCallback(() => {
+        dispatch(TripActions.tripsBook(trip, value));
+        navigation.navigate('Trips');
+    }, [dispatch, navigation, trip, value]);
 
     return (
         <Layout style={styles.layout}>
@@ -25,6 +34,7 @@ const BookTripScreen = ({ navigation }: any): ReactElement => {
                 status="success"
                 size="small"
                 appearance="filled"
+                onPress={bookTrip}
             >
                 Book
             </Button>

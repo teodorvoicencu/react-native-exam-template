@@ -4,9 +4,10 @@ import { createReducer, createActions } from 'reduxsauce';
 const { Types, Creators } = createActions({
     init: [],
     fetchAvailable: [],
-    loading: ['value'],
-    success: ['data'],
-    failure: []
+    tripsLoading: ['value'],
+    tripsSuccess: ['data'],
+    tripsFailure: [],
+    tripsBook: ['trip', 'rooms']
 });
 
 export const TripTypes = Types;
@@ -18,6 +19,6 @@ const INITIAL_STATE = {
 };
 
 export const tripReducer = createReducer(INITIAL_STATE, {
-    [Types.LOADING]: (state, { value }) => ({ ...state, loading: value }),
-    [Types.SUCCESS]: (state, { data }) => ({ ...state, data })
+    [Types.TRIPS_LOADING]: (state, { value }) => ({ ...state, loading: value }),
+    [Types.TRIPS_SUCCESS]: (state, { data }) => ({ ...state, data })
 });
